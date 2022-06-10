@@ -21,11 +21,11 @@ knitr::opts_chunk$set(out.height = "\\textheight",  out.width = "\\textwidth")
 
 # Introduction
 
-The main goal of this project is to accurately predict the in game FIFA-ratings for players using Machine Learning Methods
+The main goal of this project is to accurately predict the in game FIFA-ratings for players using Machine Learning Methods.
 
 ### What is Fifa and Why Might This Model be Useful?
 
-[FIFA](https://en.wikipedia.org/wiki/FIFA_(video_game_series)) is an annually released sports video-game series developed by EA Sports. Given that European Football/Soccer is a sport enjoyed globally, it is no surprise that the FIFA series best selling video game franchise of all time with 325 million+ sales as of 2021. Over the years the game has evolved immensely, aiming to be as realistic as possible for football lovers to enjoy. In the latest release, [FIFA 22](https://www.ea.com/games/fifa/fifa-22), The game features 700+ teams, 17000+ players, 100 iconic digitally recreated stadiums, and 30+ fully licensed leagues to make the experience as true-to-life for players. 
+[FIFA](https://en.wikipedia.org/wiki/FIFA_(video_game_series)) is an annually released sports video-game series developed by EA Sports. Given that European Football/Soccer is a sport enjoyed globally, it is no surprise that the FIFA series is the best selling video game franchise of all time with 325 million+ sales as of 2021. Over the years the game has evolved immensely, aiming to be as realistic as possible for football lovers to enjoy. In the latest release, [FIFA 22](https://www.ea.com/games/fifa/fifa-22), The game features 700+ teams, 17000+ players, 100 iconic digitally recreated stadiums, and 30+ fully licensed leagues to make the experience as true-to-life for players. 
 
 The main focus of this project is related to a gamemode in FIFA called Ultimate team, where players are able to create their own Football Club, and build their own teams using player cards from their favorite players to play opponents online and try to take their team from division 10(lowest) to division 1(highest).
 
@@ -47,7 +47,7 @@ Player cards can be obtained by opening packs or through the in-game marketplace
 <em> On the left is an example of player packs that are available to buy, and on the right is an example of special in-form player cards. They are colored differently and are higher rated than the base card for that player. </em>
 </p> 
 
-All this to say, players often strive to get better rated cards for their team in order to have a better team to play with in their road to division 1. My goal with this project is to use player attributes (i.e. age, height, weight, shooting, dribbling, passing, etc) in an attempt to predict their overall player rating (number on the top left of the card). A secondaru goal of this is to also determine what attributes, if any, are most relevant for determining a player's rating.  
+All this to say, players often strive to get better rated cards for their team in order to have a better team to play with in their road to division 1. My goal with this project is to use player attributes (i.e. age, height, weight, shooting, dribbling, passing, etc) in an attempt to predict their overall player rating (number on the top left of the card). A secondary goal of this is to also determine what attributes, if any, are most relevant for determining a player's rating.  
 
 # Loading Data and Packages
 
@@ -120,7 +120,7 @@ fifa <- fifa[, keeps]
 fifa <- drop_na(fifa)
 ```
 
-Although I had the predictors I wanted, I still needed to pre-process some variables like club_team and nationality. Because football is a global sport, there are players from all over the world, some of which are in unique scenarios. For instance, there were a number of players who didn't actually play for a specific club, but they played internationally. Another issue was with who were from nations with smaller representation in the bigger picture of football, as they weren't being properly represented in training and testing sets. These issues led to problems with factor levels when running models, so i chose to drop certain players that fit these edge cases, as imputing the values and/or correcting the information would be near impossible. 
+Although I had the predictors I wanted, I still needed to pre-process some variables like club_team and nationality. Because football is a global sport, there are players from all over the world, some of which are in unique scenarios. For instance, there were a number of players who didn't actually play for a specific club, but they played internationally. Another issue was with who were from nations with smaller representation in the bigger picture of football, as they weren't being properly represented in training and testing sets. These issues led to problems with factor levels when running models, so I chose to drop certain players that fit these edge cases, as imputing the values and/or correcting the information would be near impossible. 
 
 ```{r eval=FALSE}
 exclusions <- c('Andorra', 'Yemen', 'Nicaragua', 'South Sudan', 'Malta', 'Eritrea', 'Liberia',
@@ -226,7 +226,7 @@ folds <- vfold_cv(data = train,
 
 ### Linear Model - Baseline
 
-I chose linear regression to be my baseline model for a number of reasons Ater looking at sub-ratings for players, it seems intuitive that a linear regression would be extremely effective at predicting overall ratings. For example, if sub ratings are in the 70's and 80's for key attributes, it would make sense that the overall rating would be in the low 80's. Thus, as sub ratings increase, I would expect overall rating to increase linearly and reliably. Additionally, Linear regression is the most simple model being tested here and the most interpretable, so it made sense to use it as a baseline metric. 
+I chose linear regression to be my baseline model for a number of reasons Ater looking at sub-ratings for players, it seems intuitive that a linear regression would be extremely effective at predicting overall ratings. For example, if sub ratings are in the 70's and 80's for key attributes, it would make sense that the overall rating would be in the low 80's. Thus, as sub ratings increase, I would expect overall rating to increase linearly and reliably. Additionally, Linear Regression is the most simple model being tested here and the most interpretable, so it made sense to use it as a baseline metric. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 lm_fit <- read_rds("results/linear_regression.rds")
@@ -367,7 +367,7 @@ Here are the best boosted tree models obtained.
 show_best(boosted_tune_res, metric = "rmse")
 ```
 
-The best model had 670 trees, had a tree depth of 2, and a learning rate of 1.0023. Its RMSE was 1.258026 with a standard error of 0.01432018  
+The best model had 670 trees, had a tree depth of 2, and a learning rate of 1.0023. Its RMSE was 1.258026 with a standard error of 0.01432018.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 best_boosted_tree <- select_best(boosted_tune_res, metric = "rmse")
@@ -380,7 +380,7 @@ best_boosted_tree
 ```{r fig.align="center", echo=FALSE, message=FALSE, warning=FALSE}
 autoplot(boosted_tune_res, facets=TRUE) + ggtitle("Boosted Trees Performance") + theme(axis.text.x = element_text(size = 8, angle = 90), strip.text.x = element_text(size = 7))
 ```
-Smaller tree depths seem to preform better, and the benefit of more trees seems to level off pretty quickly as well. The best models had lower learning rates, with the lowest learning rate being the most successful.  
+Smaller tree depths seem to perform better, and the benefit of more trees seems to level off pretty quickly as well. The best models had lower learning rates, with the lowest learning rate being the most successful.  
 
 # Final Model
 
