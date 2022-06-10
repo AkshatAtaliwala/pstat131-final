@@ -3,52 +3,52 @@ Fifa Dataset Codebook
 This dataset consists of 47 variables with information about players in FIFA, a popular soccer/football sports game 
 
 Response Variable
-"overall_rating"
+"overall_rating" - the cumulative rating of a Player in FIFA Ultimate team
 
 Predictors
-"club_team"
-"club_position"
-"age"
-"height_cm"
-"weight_kgs"                  
-"wage_euro"
-"nationality"
-"preferred_foot"
-"international_reputation_1_5"
-"weak_foot_1_5"
-"skill_moves_1_5"             
-"work_rate"
-"crossing"                    
-"finishing"
-"heading_accuracy"            
-"short_passing"
-"volleys"                     
-"dribbling"  
-"curve"                       
-"freekick_accuracy"
-"long_passing"    
-"ball_control" 
-"acceleration"                
-"sprint_speed"  
-"agility"                     
-"reactions"    
-"balance"                     
-"shot_power"     
-"jumping"                     
-"stamina"       
-"strength"                    
-"long_shots"   
-"aggression"                  
-"interceptions" 
-"positioning"        
-"vision"      
-"penalties"                   
-"composure"     
-"marking"                     
-"standing_tackle"   
-"sliding_tackle"              
-"gk_diving"        
-"gk_handling"                 
-"gk_kicking"       
-"gk_positioning"              
-"gk_reflexes"
+"club_team" - what team the player plays for 
+"club_position" - what a player's main position is on the field
+"age" - How old the player is
+"height_cm" - how tall the player is in centimeters
+"weight_kgs" player's weight in kilograms
+"wage_euro" - how much the player earns annually in euros
+"nationality" - what country is the player from, what international team do they play for
+"preferred_foot" - what is the player's primary foot
+"international_reputation_1_5" - how respected/decorated a player is on an international level
+"weak_foot_1_5" - how good a player's non-dominant foot is on a scale of 1-5
+"skill_moves_1_5" - how good is the player at performing skill moves on a scale of 1-5
+"work_rate" - what is the player's intensity on offense/defense
+"crossing" - rating of a player's ability to cross the ball
+"finishing" - rating of a player's ability to finish in the box
+"heading_accuracy" - rating of a player's ability to head the ball accurately
+"short_passing" - rating of a player's ability to perform short passes
+"volleys" - rating of a player's ability to volley the ball
+"dribbling" - rating of a player's ability to dribble effectively  
+"curve" - rating of a player's ability to curve the ball                       
+"freekick_accuracy" - rating of a player's ability to accurately preform a freekick
+"long_passing" - rating of a player's ability to perform long passes
+"ball_control" - rating of a player's to control the ball
+"acceleration" - rating of a player's ability to accelerate when running
+"sprint_speed" - rating of a player's top speed when sprinting
+"agility" - rating of a player's agility
+"reactions" - rating of a player's reaction speed
+"balance" - rating of a player's balance
+"shot_power" - rating of a player's shot power
+"jumping" - rating of a player's ability to jump
+"stamina" - rating of a player's stamina througout the game
+"strength" - rating of a player's strength on an off the ball
+"long_shots" - rating of a player's ability to take long shots
+"aggression" - rating of a player's aggressiveness
+"interceptions" - rating of a player's ability to perform interceptions
+"positioning" - rating of a player's positioning awareness
+"vision" - rating of a player's eyesight
+"penalties" - rating of a player's ability to score penalties
+"composure" - rating of a player's composure in tense situations
+"marking" - rating of a player's ability to defend their man
+"standing_tackle" - rating of a player's ability to perform a standing tackle
+"sliding_tackle" - rating of a player's ability to perform a sliding tackle
+"gk_diving" - rating of a player's ability to dive as a goalkeeper
+"gk_handling" - rating of a player's ability to handle the ball as a goalkeeper
+"gk_kicking" - rating of a player's ability to kick the ball as a goalkeeper
+"gk_positioning" - rating of a player's ability to position effectively as a goalkeeper
+"gk_reflexes" - rating of a player's reflexes as a goalkeeper
